@@ -1,0 +1,134 @@
+<div class="bg">
+  <div class="caption">
+    <span class="text">Welcome to FitnessBlog</span>
+  </div>
+</div>
+
+<div class="mat-app-background basic-container">
+    <mat-card>
+      <div class="title">
+        <h2>Blog</h2> <br>
+      </div>
+        <mat-card-content>
+          
+            <section>
+                <mat-card *ngFor="let post of posts | async" >
+                  <mat-card-content>
+                      <img src="{{post.image}}" alt="{{post.title}}">
+                      <h2 class="navi" routerLink="{{post.id}}">{{post.title}}</h2>
+                      <p><small>Posted by {{post.author}} &bull; on {{post.published | date: 'fullDate'}}</small></p>
+                      <p><small>Follow me on 
+                        <a class="mdi mdi-home mdi-24px" href="{{post.twitter}}" target="_blank">Twitter</a> &bull; 
+                        <a class="mdi mdi-home mdi-24px" href="{{post.linkedIn}}" target="_blank">LinkedIn</a> &bull; 
+                        <a class="mdi mdi-home mdi-24px" href="{{post.facebook}}" target="_blank">Facebook</a>  
+                      </small></p>
+                  </mat-card-content>
+                  <mat-card-actions align="end" *ngIf="auth.currentUserId === post.authorId">
+                      <button mat-icon-button (click)="trending(post.trending)">
+                          <span>{{post.trending}}</span>
+                          <mat-icon>whatshot</mat-icon>
+                      </button> 
+                    <button mat-icon-button (click)="delete(post.id)">
+                      <mat-icon>delete</mat-icon>
+                    </button>
+                  </mat-card-actions>
+                </mat-card>
+              </section>
+
+<!--<mat-tab-group class="tab-group"color="primary" (selectedTabChange)="onLinkClick($event)">
+  <mat-tab label="All">
+      <section>
+          <mat-card *ngFor="let post of posts | async" >
+            <mat-card-content>
+                <img src="{{post.image}}" alt="{{post.title}}">
+                <h2 class="navi" routerLink="{{post.id}}">{{post.title}}</h2>
+                <p><small>Posted by {{post.author}} &bull; on {{post.published | date: 'fullDate'}}</small></p>
+                <p><small>Follow me on 
+                  <a class="mdi mdi-home mdi-24px" href="{{post.twitter}}" target="_blank">Twitter</a> &bull; 
+                  <a class="mdi mdi-home mdi-24px" href="{{post.linkedIn}}" target="_blank">LinkedIn</a> &bull; 
+                  <a class="mdi mdi-home mdi-24px" href="{{post.facebook}}" target="_blank">Facebook</a>  
+                </small></p>
+            </mat-card-content>
+            <mat-card-actions align="end" *ngIf="auth.currentUserId === post.authorId">
+                <button mat-icon-button (click)="trending(post.trending)">
+                    <span>{{post.trending}}</span>
+                    <mat-icon>whatshot</mat-icon>
+                </button> 
+              <button mat-icon-button (click)="delete(post.id)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </mat-card-actions>
+          </mat-card>
+        </section>
+  </mat-tab>
+  <mat-tab label="Health">
+      <section>
+          <mat-card *ngFor="let post of posts | async" >
+            <mat-card-content>
+                <img src="{{post.image}}" alt="{{post.title}}">
+                <h2 class="navi" routerLink="{{post.id}}">{{post.title}}</h2>
+                <p><small>Posted by {{post.author}} &bull; on {{post.published | date: 'fullDate'}}</small></p>
+                <p><small>Follow me on 
+                  <a class="mdi mdi-home mdi-24px" href="{{post.twitter}}" target="_blank">Twitter</a> &bull; 
+                  <a class="mdi mdi-home mdi-24px" href="{{post.linkedIn}}" target="_blank">LinkedIn</a> &bull; 
+                  <a class="mdi mdi-home mdi-24px" href="{{post.facebook}}" target="_blank">Facebook</a>  
+                </small></p>
+            </mat-card-content>
+            <mat-card-actions align="end" *ngIf="auth.currentUserId === post.authorId">
+                <button mat-icon-button (click)="trending(post.trending)">
+                    <span>{{post.trending}}</span>
+                    <mat-icon>whatshot</mat-icon>
+                </button> 
+              <button mat-icon-button (click)="delete(post.id)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </mat-card-actions>
+          </mat-card>
+        </section>
+  </mat-tab>
+  <mat-tab label="Fitness">
+      <section>
+          <mat-card *ngFor="let post of posts | async" >
+            <mat-card-content>
+                <img src="{{post.image}}" alt="{{post.title}}">
+                <h2 class="navi" routerLink="{{post.id}}">{{post.title}}</h2>
+                <p><small>Posted by {{post.author}} &bull; on {{post.published | date: 'fullDate'}}</small></p>
+                <p><small>Follow me on 
+                  <a class="mdi mdi-home mdi-24px" href="{{post.twitter}}" target="_blank">Twitter</a> &bull; 
+                  <a class="mdi mdi-home mdi-24px" href="{{post.linkedIn}}" target="_blank">LinkedIn</a> &bull; 
+                  <a class="mdi mdi-home mdi-24px" href="{{post.facebook}}" target="_blank">Facebook</a>  
+                </small></p>
+            </mat-card-content>
+            <mat-card-actions align="end" *ngIf="auth.currentUserId === post.authorId">
+              <button mat-icon-button (click)="delete(post.id)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </mat-card-actions>
+          </mat-card>
+        </section>
+  </mat-tab>
+  <mat-tab label="Wellness">
+      <section>
+          <mat-card *ngFor="let post of posts | async" >
+            <mat-card-content>
+                <img src="{{post.image}}" alt="{{post.title}}">
+                <h2 class="navi" routerLink="{{post.id}}">{{post.title}}</h2>
+                <p><small>Posted by {{post.author}} &bull; on {{post.published | date: 'fullDate'}}</small></p>
+                <p><small>Follow me on 
+                  <a class="mdi mdi-home mdi-24px" href="{{post.twitter}}" target="_blank">Twitter</a> &bull; 
+                  <a class="mdi mdi-home mdi-24px" href="{{post.linkedIn}}" target="_blank">LinkedIn</a> &bull; 
+                  <a class="mdi mdi-home mdi-24px" href="{{post.facebook}}" target="_blank">Facebook</a>  
+                </small></p>
+            </mat-card-content>
+            <mat-card-actions align="end" *ngIf="auth.currentUserId === post.authorId">
+              <button mat-icon-button (click)="delete(post.id)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </mat-card-actions>
+          </mat-card>
+        </section>
+  </mat-tab>
+</mat-tab-group> -->
+</mat-card-content>
+</mat-card>
+</div>

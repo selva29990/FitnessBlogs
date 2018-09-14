@@ -17,9 +17,12 @@
       "test": "test.ts",
       "tsconfig": "tsconfig.app.json",
       "testTsconfig": "tsconfig.spec.json",
-      "prefix": "app",
+      "prefix": "",
       "styles": [
-        "styles.scss"
+        "styles.scss",
+        "theme.scss",
+        "../node_modules/material-design-icons/iconfont/material-icons.css",
+        "styles/css/bootstrap.min.css"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",
@@ -55,6 +58,10 @@
   },
   "defaults": {
     "styleExt": "scss",
-    "component": {}
+    "component": {
+      "inlineStyle": false,
+      "inlineTemplate": false,
+      "spec": false
+    }
   }
 }

@@ -1,0 +1,30 @@
+<main id="container">
+    <section class="wrap-login100">
+      <form [formGroup]="signUpForm" (ngSubmit)="signUp()">
+        <h3>Welcome to LegitFit</h3>
+        <p>Lets get started</p>
+      
+        <!--Email-->
+        <mat-form-field [formGroup]="signUpForm">
+            <input matInput placeholder="Enter your Display name" [formControl]="displayName" required>
+        </mat-form-field>
+
+        <!--Email-->
+        <mat-form-field [formGroup]="signUpForm">
+          <input matInput placeholder="Enter your email" [formControl]="email" required>
+          <mat-error *ngIf="email.valid">Not a valid email</mat-error>
+        </mat-form-field>
+        
+        <!--Password-->
+        <mat-form-field [formGroup]="signUpForm">
+          <input matInput placeholder="Enter your password" [formControl]="password" [type]="hide ? 'password' : 'text'" required>
+          <mat-icon matsuffix (click)="hide =!hide" > 
+            {{ hide ? 'visibility' : 'visibility_off'}}
+          </mat-icon>
+          <mat-error *ngIf="password.valid">Not a valid password</mat-error>
+        </mat-form-field>
+  
+        <button mat-raised-button color="primary" type="submit">SIGN UP</button>
+      </form>
+    </section>
+  </main>

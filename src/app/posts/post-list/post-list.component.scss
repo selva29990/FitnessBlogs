@@ -1,0 +1,75 @@
+section{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-auto-rows: auto;
+    grid-gap: 10px;
+    margin: 0 auto;
+    max-width: 95%;
+}
+
+mat-card{
+    margin: 10px 0;
+}
+
+img{
+    width: 100%;
+}
+
+.navi:focus{
+    outline: none;
+    border: 0;
+}
+
+.navi{
+    cursor: pointer;
+}
+
+.basic-container {
+    padding: 5px;
+  }
+  
+.tab-group {
+    border: 1px solid #e8e8e8;
+ }
+
+ .bg{
+    background-image: url(assets/img/bg.png);
+
+    /* Full height */
+    height: 100%; 
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: covPer;
+}
+
+.title{
+    text-align: center;
+}
+
+.caption{
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+}
+
+.overlay {
+    position: fixed; /* Sit on top of the page content */
+    display: none; /* Hidden by default */
+    width: 100%; /* Full width (cover the whole page) */
+    height: 100%; /* Full height (cover the whole page) */
+    top: 0; 
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.7); /* Black background with opacity */
+    z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+}
+
+.text{
+    color: #fff;
+    font-size: 42px;
+}

@@ -1,0 +1,52 @@
+<section id="createPost">
+          <h2>Create a post</h2> 
+      <div>
+        <input type="file" name="file" id="file" (change)="uploadImage($event)">
+        <div [hidden]="!uploadPercent">
+            <mat-progress-bar mode="determinate" value="{{uploadPercent | async}}"></mat-progress-bar>
+        </div>
+        <div [hidden]="!image">
+          <img [src]="image || '//:0'" > 
+        </div>
+      </div>
+      <br>
+        <!--<mat-select placeholder="Choose catagory" [formControl]="catagoriesControl" required>
+          <mat-option>--</mat-option>
+          <mat-option *ngFor="let cat of catagories" [value]="cat">
+            {{cat.name}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="catagoriesControl.hasError('required')">Please choose post catagory</mat-error>
+        <mat-hint>{{catagoriesControl.value?.value}}</mat-hint>-->
+        <mat-form-field>
+          <mat-select [(value)]="selected">
+            <mat-option value="Health">Health</mat-option>
+            <mat-option value="Fitness">Fitness</mat-option>
+            <mat-option value="Wellness">Wellness</mat-option>
+            <mat-option value="All">All</mat-option>
+          </mat-select>
+        </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Post Title" [(ngModel)]="title">
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+          <textarea matInput placeholder="Content" [(ngModel)]="content" rows="10"></textarea>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+          <input matInput placeholder="Instagram URL" [(ngModel)]="instagram">
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+          <input matInput placeholder="Twitter URL" [(ngModel)]="twitter">
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+          <input matInput placeholder="Facebook URL" [(ngModel)]="facebook">
+      </mat-form-field>
+      <button mat-raised-button color="accent" (click)="createPost()"[disabled]="!title || !content ||!image">
+          {{buttonText}}
+      </button>
+
+ </section>

@@ -1,0 +1,43 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span routerLink="/blog">
+        FitnessBlog
+    </span>
+    <span class="spacer"></span>
+    <div *ngIf="auth.afAuth.authState | async as user; else showLogin">
+      <button mat-raised-button color="accent" routerLink="/dashboard" >Write a blog</button>
+      <button mat-raised-button color="primary" (click)="openLogoutDialog()">Logout</button>
+    </div> 
+    <ng-template #showLogin>
+        <button mat-raised-button color="accent" routerLink="/signin" >Signin</button> &nbsp;
+        <button mat-raised-button color="accent" routerLink="/signup" >Signup</button>
+    </ng-template>
+    &nbsp; 
+</mat-toolbar-row>  
+</mat-toolbar>
+<!--
+<mat-sidenav-container color="primary" class="example-container" >
+    <mat-sidenav #sidenav mode="over" [(opened)]="opened" >
+        <span class="brand-name" routerLink="/blog">
+            LegitfitBlogs
+        </span>
+        <div *ngIf="auth.afAuth.authState | async as user; else showLogin">
+          <span>Hello {{user.displayName}}</span><br>
+          <button mat-raised-button color="accent" routerLink="/dashboard" >Write a blog</button> <br>
+
+          <button mat-raised-button color="primary" (click)="auth.logout()">Logout</button>
+        </div>
+        <ng-template #showLogin>
+            <button mat-raised-button color="primary" (click)="auth.login()">Login with Google</button>
+        </ng-template>
+    </mat-sidenav>
+  
+    <mat-sidenav-content class="menuBtn">
+      <button  mat-icon-button (click)="sidenav.toggle()"><mat-icon>menu</mat-icon> Menu</button>
+      <span class="brand-name">
+          LegitfitBlog
+      </span>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  
+-->

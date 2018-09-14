@@ -1,0 +1,63 @@
+main{
+    display: grid;
+    align-items: center;
+    grid-template-rows: 100vh;   
+}
+
+section{
+    max-width: 600px;
+    margin: auto;
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+button{
+    width: 100%;
+    margin-top: 15px;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.wrap-login100 {
+    width: 100%;
+    color: #000;
+    background-color: white;
+    opacity: 0.9;
+    padding: 20px;
+  }
+
+  #container {
+    /* The image used */
+    background-image: url("../../assets/img/bg.png");
+
+    /* Full height */
+    height: 100%; 
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+ 
+@media (max-width: 576px) {
+    .wrap-login100 {
+      margin-top: 60px;
+      padding: 40px 15px 37px 15px;
+      position: absolute;
+      width: 100%;
+      color: #000;
+      background-color: white;
+      opacity: 0.9;
+    }
+  }
+  
